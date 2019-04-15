@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require("./config/config");
-const jwt = require("./auth/jwtConfig");
+const AuthenticationHandler = require("./auth/jwtConfig").authenticationHandler();
 const mongoose = require('mongoose');
+
+const userRouter = require('./routes/user');
 
 // Initialize express and set port number
 const app = express();
@@ -31,7 +33,7 @@ mongoose.connection.on('disconnected', () => {
 });
 
 // Handle authentication
-app.use(jwt.authenticationHandler());
+app.use(AuthenticationHandler);
 
 // Handling GET for the root URL
 app.get("/", (req, res) => {
@@ -39,7 +41,7 @@ app.get("/", (req, res) => {
 });
 
 // Add routers
-app.use("/api/info", infoRouter);
+app.use("/api/user", userRouter);
 
 // Starting the API
 app.listen(port, () => Logger.info(`Twitter API listening on port ${port}`));
