@@ -40,7 +40,7 @@ exports.AuthenticationHandler = async (req, res, next) => {
 
     if (!(await userExists(userId))) return res.status(404).json({ error: "User not found" });
 
-    req.userId = userId;
+    req.UserID = userId;
 
     next();
 }
