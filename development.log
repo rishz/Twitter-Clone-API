@@ -1,0 +1,44 @@
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:37:09.981Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:37:10.018Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:37:53.284Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:37:53.312Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:47:50.679Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:47:50.705Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:48:18.034Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:48:18.066Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:48:37.492Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:48:37.514Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:49:10.661Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:49:10.694Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:50:51.626Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:50:51.654Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:51:08.221Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:51:08.279Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:51:40.419Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:51:40.445Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:52:15.116Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:52:15.152Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:55:01.605Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:55:01.642Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T03:58:54.779Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T03:58:54.806Z"}
+{"level":"error","message":"TypeError: jwt.sign is not a function","timestamp":"2019-04-16T03:59:32.120Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T04:02:25.008Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T04:02:25.036Z"}
+{"level":"error","message":"Error: secretOrPrivateKey must have a value","timestamp":"2019-04-16T04:02:32.697Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T04:03:39.661Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T04:03:39.698Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T04:06:26.793Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T04:06:26.820Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-16T04:27:53.159Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-16T04:27:53.181Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-17T04:41:06.118Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-17T04:41:06.150Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-17T04:45:44.847Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-17T04:45:44.885Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-17T04:52:18.698Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-17T04:52:18.725Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-17T04:52:37.822Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-17T04:52:37.848Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-17T04:56:55.163Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-17T04:56:55.198Z"}

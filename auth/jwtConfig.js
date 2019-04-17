@@ -6,15 +6,8 @@ const User = require('../models/User');
 
 // Routes to run auth on
 const securedRoutes = [
-    "/api/user"
+    "/api/profile"
 ];
-
-const sign = id => {
-	let token = jwt.sign({id: id}, config.secret, {
-      expiresIn: 86400*7 // expires in 7 days
-    });
-    return token;
-}
 
 const userExists = async (id) => {
 	const user = await User.findById(id);
@@ -22,12 +15,14 @@ const userExists = async (id) => {
 };
 
 const verify = (token) => {
-	const decoded = jwt.verify(token, secret);
-	if(decoded === undefined || decoded == "") return false;
-	return decoded.id;
+	try {
+		const decoded = jwt.verify(token, secret);
+		if(decoded === undefined || decoded == "") return false;
+		return decoded.id;
+	} catch (err) { return false; }
 };
 
-exports.authenticationHandler = async (req, res, next) => {
+exports.AuthenticationHandler = async (req, res, next) => {
 	// Only run auth on secured routes
     const pathParts = req.path.split("/", 3);
     if (!securedRoutes.includes(`/${pathParts[1]}/${pathParts[2]}`)) return next();
@@ -48,4 +43,11 @@ exports.authenticationHandler = async (req, res, next) => {
     req.userId = userId;
 
     next();
+}
+
+exports.sign = id => {
+	let token = jwt.sign({id: id}, secret, {
+      expiresIn: 86400*7 // expires in 7 days
+    });
+    return token;
 }

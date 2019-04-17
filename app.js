@@ -1,14 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require("./config/config");
-const AuthenticationHandler = require("./auth/jwtConfig").authenticationHandler();
 const mongoose = require('mongoose');
+const { AuthenticationHandler } = require("./auth/jwtConfig");
+const { CustomRouterFunctions } = require("./framework/CustomRouter");
+const { Logger } = require('./framework/Logger');
 
 const userRouter = require('./routes/user');
+const profileRouter = require('./routes/profile');
 
 // Initialize express and set port number
 const app = express();
-const PORT = process.env.PORT || config.port;
+const port = process.env.PORT || config.port;
 
 // Plug in body parser middleware for parsing json requests
 app.use(bodyParser.json());
@@ -35,6 +38,9 @@ mongoose.connection.on('disconnected', () => {
 // Handle authentication
 app.use(AuthenticationHandler);
 
+// Handle custom router functions
+app.use(CustomRouterFunctions);
+
 // Handling GET for the root URL
 app.get("/", (req, res) => {
     res.send("Welcome to the Twitter API <br> Visit /api for the API functionality.");
@@ -42,6 +48,7 @@ app.get("/", (req, res) => {
 
 // Add routers
 app.use("/api/user", userRouter);
+app.use("/api/profile", profileRouter);
 
 // Starting the API
 app.listen(port, () => Logger.info(`Twitter API listening on port ${port}`));

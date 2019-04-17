@@ -1,3 +1,5 @@
+const { Logger } = require('../framework/Logger');
+
 /**
  * Checks if a param is present in a request
  */
@@ -10,13 +12,13 @@ module.exports = {
 	/**
 	 * Checks if the required parameter is passed as part of the request
 	 */
-	requiredParams = params => {
+	requiredParams: params => {
 		return (req, res, next) => {
-			for(param in params){
+			for (const param of params) {
 				if(!isParamPresent(param, req)){
 					return res.sendJsonError(`${param} not provided`);
 				}
-			}
+			};
 			next();
 		}
 	},
@@ -24,7 +26,7 @@ module.exports = {
 	/**
 	 * Checks if the passed parameters are present in the request
 	 */
-	requiredParam = (req, res, next) => {
+	requiredParam: param => {
 		return (req, res, next) => {
 			if(!isParamPresent(param, req)){
 				return res.sendJsonError(`${param} not provided`);
