@@ -138,3 +138,5 @@
 {"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-19T14:20:56.524Z"}
 {"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-19T14:22:58.561Z"}
 {"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-19T14:22:58.594Z"}
+{"level":"info","message":"Twitter API listening on port 8003","timestamp":"2019-04-19T15:02:06.550Z"}
+{"level":"info","message":"Connection to database established successfully","timestamp":"2019-04-19T15:02:06.609Z"}
