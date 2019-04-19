@@ -32,15 +32,15 @@ router.post("/:id/follow", async (req, res) => {
 
     // Already follower?
     const follower = await Follows.findOne({$and: [
-         { followeeID: req.UserID }, { followerID: req.params.id }
+         { followee: req.UserID }, { follower: req.params.id }
       ]});
 
     if(follower !== null) return res.sendJsonError("You are already a follower");
 
 	// Add follower
 	const follows = new Follows;
-    follows.followeeID = req.UserID;
-    follows.followerID = req.params.id;
+    follows.followee = req.UserID;
+    follows.follower = req.params.id;
     // Saving the follower
     try {
         await follows.save();
@@ -68,13 +68,15 @@ router.post("/:id/unfollow", async (req, res) => {
 
     // Already follower?
     const follower = await Follows.findOne({$and: [
-         { followeeID: req.UserID }, { followerID: req.params.id }
+         { followee: req.UserID }, { follower: req.params.id }
       ]});
     if (follower === null) return res.sendJsonError("You are already not a follower");
 
-	// Add follower
-    follower.remove();
-    res.sendStatusSuccess();
+	// Remove follower
+	try{
+    	await follower.remove();
+    	res.sendStatusSuccess();
+	} catch (err) { ErrorHandler(err, res); }
 });
 
 module.exports = router;

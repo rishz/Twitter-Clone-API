@@ -3,19 +3,22 @@ const Schema = mongoose.Schema;
 /**
  * Model representation of the database stored Follows entity
  */
-const followsSchema = new Schema({
-	followee: {
+const tweetSchema = new Schema({
+	author: {
  		type: Schema.Types.ObjectId,
  		ref: "User",
     	required: true
 	},
-	follower: {
- 		type: Schema.Types.ObjectId,
- 		ref: "User",
+	body: {
+ 		type: String,
     	required: true
+	},
+	date_created: { 
+		type: Date,
+		default: Date.now
 	}
 });
 
-followsSchema.index({ follower: 1 });
+tweetSchema.index({ date_created: 1 });
 
-module.exports =  mongoose.model('Follows', followsSchema);
+module.exports =  mongoose.model('Tweet', tweetSchema);

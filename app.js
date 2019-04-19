@@ -8,6 +8,7 @@ const { Logger } = require('./framework/Logger');
 
 const userRouter = require('./routes/user');
 const profileRouter = require('./routes/profile');
+const tweetRouter = require('./routes/tweet');
 
 // Initialize express and set port number
 const app = express();
@@ -50,6 +51,7 @@ app.get("/", (req, res) => {
 // Add routers
 app.use("/api/user", userRouter);
 app.use("/api/profile", profileRouter);
+app.use("/api/tweet", tweetRouter);
 
 // Starting the API
 app.listen(port, () => Logger.info(`Twitter API listening on port ${port}`));

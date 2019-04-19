@@ -4,14 +4,14 @@ const Schema = mongoose.Schema;
  * Model representation of the database stored User entity
  */
 const userSchema = new Schema({
- email: {
- 	type: String,
-    required: true
- },
- password: {
- 	type: String,
- 	required: true
- }
+	email: {
+ 		type: String,
+    	required: true
+ 	},
+ 	password: {
+ 		type: String,
+ 		required: true
+ 	}
 });
 
 userSchema.index({ email: 1 });

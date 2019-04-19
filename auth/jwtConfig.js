@@ -6,7 +6,8 @@ const User = require('../models/User');
 
 // Routes to run auth on
 const securedRoutes = [
-    "/api/profile"
+    "/api/profile",
+    "/api/tweet"
 ];
 
 const userExists = async (id) => {
