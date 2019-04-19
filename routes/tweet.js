@@ -28,7 +28,7 @@ const { ErrorHandler } = require('../framework/ErrorHandler');
         await tweet.save();
         res.json({ status: "success", _id: tweet._id });
     } catch (e) {
-        res.sendJsonError("Event could not be saved");
+        res.sendJsonError("Tweet could not be saved");
     }
  });
 

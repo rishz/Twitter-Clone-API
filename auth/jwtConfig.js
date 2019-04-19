@@ -47,8 +47,6 @@ exports.AuthenticationHandler = async (req, res, next) => {
 }
 
 exports.sign = id => {
-	let token = jwt.sign({id: id}, secret, {
-      expiresIn: 86400*7 // expires in 7 days
-    });
+	let token = jwt.sign({id: id}, secret);
     return token;
 }
