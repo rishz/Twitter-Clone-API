@@ -71,10 +71,7 @@ router.post("/register", requiredParams(["email", "password"]), async (req, res)
     // Saving the user
     try {
         await user.save();
-
-        // Creates login token
-        const token = jwt.sign(user.id);
-        res.json({token: token});
+        res.sendStatusSuccess();
     } catch (err) { ErrorHandler(err, res); }
 });
 

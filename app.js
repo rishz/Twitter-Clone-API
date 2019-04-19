@@ -34,6 +34,7 @@ mongoose.connection.on('error', (err) => {
 mongoose.connection.on('disconnected', () => {
   Logger.info('Database disconnected');
 });
+mongoose.set('useCreateIndex', true);
 
 // Handle authentication
 app.use(AuthenticationHandler);

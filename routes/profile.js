@@ -4,6 +4,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const Follows = require('../models/Follows');
 const { requiredParams, requiredParam } = require('../auth/paramHandler');
 const { ErrorHandler } = require('../framework/ErrorHandler');
 
@@ -22,7 +23,6 @@ const { ErrorHandler } = require('../framework/ErrorHandler');
  */
 router.post("/:id/follow", async (req, res) => {
     const targetUser = await User.findById(req.params.id);
-    const user = await User.findById(req.UserID);
 
     // target user found?
     if (targetUser === null) return res.return404Error("user");
@@ -31,18 +31,21 @@ router.post("/:id/follow", async (req, res) => {
     if (req.UserID === req.params.id) return res.sendJsonError("You cannot follow yourself");
 
     // Already follower?
-    const isAlreadyThere = targetUser.followers.some(followerID => followerID.equals(req.UserID));
-    if(isAlreadyThere) return res.sendJsonError("You are already a follower");
+    const follower = await Follows.findOne({$and: [
+         { followeeID: req.UserID }, { followerID: req.params.id }
+      ]});
+
+    if(follower !== null) return res.sendJsonError("You are already a follower");
 
 	// Add follower
-    targetUser.followers.push(req.UserID);
-    await targetUser.save();
-
-    // Reverse Add follower
-    user.following.push(req.params.id);
-    await user.save();
-
-    res.sendStatusSuccess();
+	const follows = new Follows;
+    follows.followeeID = req.UserID;
+    follows.followerID = req.params.id;
+    // Saving the follower
+    try {
+        await follows.save();
+        res.sendStatusSuccess();
+    } catch (err) { ErrorHandler(err, res); }
 });
 
 /**
@@ -59,23 +62,18 @@ router.post("/:id/follow", async (req, res) => {
  */
 router.post("/:id/unfollow", async (req, res) => {
 	const targetUser = await User.findById(req.params.id);
-    const user = await User.findById(req.UserID);
 
     // target user found?
     if (targetUser === null) return res.return404Error("user");
 
     // Already follower?
-    const isAlreadyThere = targetUser.followers.some(followerID => followerID.equals(req.UserID));
-    if (!isAlreadyThere) return res.sendJsonError("You are already not a follower");
+    const follower = await Follows.findOne({$and: [
+         { followeeID: req.UserID }, { followerID: req.params.id }
+      ]});
+    if (follower === null) return res.sendJsonError("You are already not a follower");
 
 	// Add follower
-    targetUser.followers.remove(req.UserID);
-    await targetUser.save();
-
-    // Reverse Add follower
-    user.following.remove(req.params.id);
-    await user.save();
-
+    follower.remove();
     res.sendStatusSuccess();
 });
 
