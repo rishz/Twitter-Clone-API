@@ -13,8 +13,9 @@ Twitter Clone API built in Node.js and Express
   - `mongod`
   - `npm test`
 
-### Refer to [API Docs](https://github.com/rishz/Twitter-Clone-API/API_DOCS.md) or Inline API Docs for API Documentation and Usage
+### Refer to [API Docs](https://github.com/rishz/Twitter-Clone-API/blob/master/API_DOCS.md) or Inline APIDoc for API Documentation and Usage
 
+## Dependencies Used
 * Express - *Fast, unopinionated, minimalist web framework for node.*
 * MongoDB (Using Mongoose) - *An object modeling tool designed to work in an asynchronous environment.*
 * Mocha - *Simple, flexible, fun javascript test framework for node.js*
