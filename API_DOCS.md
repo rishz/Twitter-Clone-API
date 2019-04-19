@@ -76,7 +76,7 @@
  > @apiError {string} TweetNotFound Tweet not found
  > @apiError {string} PrivacyError User cannot see this Tweet (not created by user)
 
-### GET  api/tweet/:id - Delete a Tweet
+### DELETE  api/tweet/:id - Delete a Tweet
  > @api {delete} /tweet/:id Delete a Tweet
  > @apiVersion 1.0.0
  > @apiName DeleteTweet
